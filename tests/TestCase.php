@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Spatie\JsonApiPaginate\Test;
+namespace Faust\JsonApiPaginate\Tests;
 
 use Carbon\Carbon;
 use Illuminate\Database\Schema\Blueprint;
@@ -31,7 +31,7 @@ abstract class TestCase extends Orchestra
     protected function getPackageProviders($app)
     {
         return [
-            \Spatie\JsonApiPaginate\JsonApiPaginateServiceProvider::class,
+            \Faust\JsonApiPaginate\ServiceProvider::class,
         ];
     }
 

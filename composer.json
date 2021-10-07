@@ -1,41 +1,48 @@
 {
-    "name": "spatie/laravel-json-api-paginate",
-    "description": "A paginator that plays nice with the JSON API spec",
+    "name": "faustbrian/laravel-json-api-paginate",
+    "description": "JSON:API Pagination for Laravel",
     "keywords": [
-        "spatie",
+        "faustbrian",
+        "laravel",
         "laravel-json-api-paginate"
     ],
-    "homepage": "https://github.com/spatie/laravel-json-api-paginate",
+    "homepage": "https://github.com/faustbrian/laravel-json-api-paginate",
     "license": "MIT",
     "authors": [
         {
-            "name": "Freek Van der Herten",
-            "email": "freek@spatie.be",
-            "homepage": "https://spatie.be",
+            "name": "Brian Faust",
+            "email": "brian@faust.mx",
             "role": "Developer"
         }
     ],
     "require": {
         "php": "^8.0",
-        "illuminate/support": "^8.0"
+        "illuminate/support": "^8.37"
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "^3.2",
-        "orchestra/testbench": "^6.0",
-        "phpunit/phpunit": "^9.0"
+        "friendsofphp/php-cs-fixer": "^3.1",
+        "graham-campbell/analyzer": "^3.0",
+        "nunomaduro/collision": "^5.3",
+        "orchestra/testbench": "^6.15",
+        "pestphp/pest": "^1.18",
+        "pestphp/pest-plugin-laravel": "^1.1",
+        "pestphp/pest-plugin-parallel": "^0.3.1",
+        "spatie/laravel-ray": "^1.23",
+        "vimeo/psalm": "^4.8"
     },
     "autoload": {
         "psr-4": {
-            "Spatie\\JsonApiPaginate\\": "src"
+            "Faust\\JsonApiPaginate\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Spatie\\JsonApiPaginate\\Test\\": "tests"
+            "Faust\\JsonApiPaginate\\Tests\\": "tests"
         }
     },
     "scripts": {
-        "test": "vendor/bin/phpunit"
+        "test": "./vendor/bin/pest --no-coverage --parallel",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
     },
     "config": {
         "sort-packages": true
@@ -43,7 +50,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Spatie\\JsonApiPaginate\\JsonApiPaginateServiceProvider"
+                "Faust\\JsonApiPaginate\\ServiceProvider"
             ]
         }
     },

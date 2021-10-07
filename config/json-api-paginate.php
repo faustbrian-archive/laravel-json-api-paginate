@@ -46,4 +46,5 @@ return [
      * The name of the query parameter used for pagination
      */
     'pagination_parameter' => 'page',
+
 ];

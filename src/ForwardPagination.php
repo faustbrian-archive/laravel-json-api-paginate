@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Spatie\JsonApiPaginate;
+namespace Faust\JsonApiPaginate;
 
 use Illuminate\Support\Arr;
 

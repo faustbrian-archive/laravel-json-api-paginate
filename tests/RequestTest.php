@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Spatie\JsonApiPaginate\Test;
+namespace Faust\JsonApiPaginate\Tests;
 
 /**
  * @coversNothing
