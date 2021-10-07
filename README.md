@@ -4,8 +4,8 @@
 
 # JSON:API Pagination for Laravel
 
-[![PHP](https://badgen.net/packagist/php/faustbrian/laravel-remote-store)](https://packagist.org/packages/faustbrian/laravel-remote-store)
-[![Latest Version](https://badgen.net/packagist/v/faustbrian/laravel-remote-store)](https://packagist.org/packages/faustbrian/laravel-remote-store)
+[![PHP](https://badgen.net/packagist/phpfaustbrian/laravel-json-api-paginate)](https://packagist.org/packagesfaustbrian/laravel-json-api-paginate)
+[![Latest Version](https://badgen.net/packagist/vfaustbrian/laravel-json-api-paginate)](https://packagist.org/packagesfaustbrian/laravel-json-api-paginate)
 
 ## Installation
 
