@@ -1,7 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Spatie\JsonApiPaginate\Test;
 
+/**
+ * @coversNothing
+ */
 class BuilderTest extends TestCase
 {
     /** @test */
@@ -9,7 +14,7 @@ class BuilderTest extends TestCase
     {
         $paginator = TestModel::jsonPaginate();
 
-        $this->assertEquals('http://localhost?page%5Bnumber%5D=2', $paginator->nextPageUrl());
+        $this->assertSame('http://localhost?page%5Bnumber%5D=2', $paginator->nextPageUrl());
     }
 
     /** @test */
@@ -45,7 +50,7 @@ class BuilderTest extends TestCase
 
         $paginator = TestModel::jsonPaginate();
 
-        $this->assertEquals('https://example.com?page%5Bnumber%5D=2', $paginator->nextPageUrl());
+        $this->assertSame('https://example.com?page%5Bnumber%5D=2', $paginator->nextPageUrl());
     }
 
     /** @test */

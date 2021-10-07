@@ -1,7 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Spatie\JsonApiPaginate\Test;
 
+/**
+ * @coversNothing
+ */
 class RequestTest extends TestCase
 {
     /** @test */
