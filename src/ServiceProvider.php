@@ -7,27 +7,19 @@ namespace Faust\JsonApiPaginate;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
-use Illuminate\Support\ServiceProvider;
+use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class ServiceProvider extends ServiceProvider
+class ServiceProvider extends PackageServiceProvider
 {
-    public function boot()
+    public function configurePackage(Package $package): void
     {
-        if ($this->app->runningInConsole()) {
-            $this->publishes([
-                __DIR__.'/../config/json-api-paginate.php' => config_path('json-api-paginate.php'),
-            ], 'config');
-        }
-
-        $this->registerMacro();
+        $package
+            ->name('json-api-paginate')
+            ->hasConfigFile();
     }
 
-    public function register()
-    {
-        $this->mergeConfigFrom(__DIR__.'/../config/json-api-paginate.php', 'json-api-paginate');
-    }
-
-    protected function registerMacro()
+    public function register(): void
     {
         $pagination = resolve(ForwardPagination::class);
 
