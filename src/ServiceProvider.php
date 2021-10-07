@@ -21,10 +21,10 @@ class ServiceProvider extends PackageServiceProvider
 
     public function register(): void
     {
-        $pagination = resolve(ForwardPagination::class);
+        $pagination = fn (int $maxResults = null, int $defaultSize = null) => resolve(ForwardPagination::class)($this, $maxResults, $defaultSize);
 
-        Builder::macro(config('json-api-paginate.method_name'), fn (int $maxResults = null, int $defaultSize = null) => $pagination($this, $maxResults, $defaultSize));
-        BelongsToMany::macro(config('json-api-paginate.method_name'), fn (int $maxResults = null, int $defaultSize = null) => $pagination($this, $maxResults, $defaultSize));
-        HasManyThrough::macro(config('json-api-paginate.method_name'), fn (int $maxResults = null, int $defaultSize = null) => $pagination($this, $maxResults, $defaultSize));
+        Builder::macro(config('json-api-paginate.method_name'), $pagination);
+        BelongsToMany::macro(config('json-api-paginate.method_name'), $pagination);
+        HasManyThrough::macro(config('json-api-paginate.method_name'), $pagination);
     }
 }
