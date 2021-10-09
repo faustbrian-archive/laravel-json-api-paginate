@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Faust\JsonApiPaginate\Tests;
+namespace Tests;
 
 use Illuminate\Database\Eloquent\Model;
 

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use Faust\JsonApiPaginate\Tests\TestModel;
+use Tests\TestModel;
 
 it('can paginate records', function (): void {
     $paginator = TestModel::jsonPaginate();
