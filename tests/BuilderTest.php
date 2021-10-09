@@ -2,64 +2,46 @@
 
 declare(strict_types=1);
 
-namespace Faust\JsonApiPaginate\Tests;
+use Faust\JsonApiPaginate\Tests\TestModel;
 
-/**
- * @coversNothing
- */
-class BuilderTest extends TestCase
-{
-    /** @test */
-    public function it_can_paginate_records()
-    {
-        $paginator = TestModel::jsonPaginate();
+it('can paginate records', function (): void {
+    $paginator = TestModel::jsonPaginate();
 
-        $this->assertSame('http://localhost?page%5Bnumber%5D=2', $paginator->nextPageUrl());
-    }
+    $this->assertSame('http://localhost?page%5Bnumber%5D=2', $paginator->nextPageUrl());
+});
 
-    /** @test */
-    public function it_returns_the_amount_of_records_specified_in_the_config_file()
-    {
-        config()->set('json-api-paginate.default_size', 10);
+it('returns the amount of records specified in the config file', function (): void {
+    config()->set('json-api-paginate.default_size', 10);
 
-        $paginator = TestModel::jsonPaginate();
+    $paginator = TestModel::jsonPaginate();
 
-        $this->assertCount(10, $paginator);
-    }
+    $this->assertCount(10, $paginator);
+});
 
-    /** @test */
-    public function it_can_return_the_specified_amount_of_records()
-    {
-        $paginator = TestModel::jsonPaginate(15);
+it('can return the specified amount of records', function (): void {
+    $paginator = TestModel::jsonPaginate(15);
 
-        $this->assertCount(15, $paginator);
-    }
+    $this->assertCount(15, $paginator);
+});
 
-    /** @test */
-    public function it_will_not_return_more_records_that_the_configured_maximum()
-    {
-        $paginator = TestModel::jsonPaginate(15);
+it('will not return more records that the configured maximum', function (): void {
+    $paginator = TestModel::jsonPaginate(15);
 
-        $this->assertCount(15, $paginator);
-    }
+    $this->assertCount(15, $paginator);
+});
 
-    /** @test */
-    public function it_can_set_a_custom_base_url_in_the_config_file()
-    {
-        config()->set('json-api-paginate.base_url', 'https://example.com');
+it('can set a custom base url in the config file', function (): void {
+    config()->set('json-api-paginate.base_url', 'https://example.com');
 
-        $paginator = TestModel::jsonPaginate();
+    $paginator = TestModel::jsonPaginate();
 
-        $this->assertSame('https://example.com?page%5Bnumber%5D=2', $paginator->nextPageUrl());
-    }
+    $this->assertSame('https://example.com?page%5Bnumber%5D=2', $paginator->nextPageUrl());
+});
 
-    /** @test */
-    public function it_can_use_simple_pagination()
-    {
-        config()->set('json-api-paginate.use_simple_pagination', true);
+it('can use simple pagination', function (): void {
+    config()->set('json-api-paginate.use_simple_pagination', true);
 
-        $paginator = TestModel::jsonPaginate();
+    $paginator = TestModel::jsonPaginate();
 
-        $this->assertFalse(method_exists($paginator, 'total'));
-    }
-}
+    $this->assertFalse(method_exists($paginator, 'total'));
+});

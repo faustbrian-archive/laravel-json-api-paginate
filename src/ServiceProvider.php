@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace Faust\JsonApiPaginate;
 
-use Illuminate\Support\Arr;
-use Spatie\LaravelPackageTools\Package;
 use Illuminate\Database\Eloquent\Builder;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
+use Illuminate\Support\Arr;
+use Spatie\LaravelPackageTools\Package;
+use Spatie\LaravelPackageTools\PackageServiceProvider;
 
 class ServiceProvider extends PackageServiceProvider
 {
